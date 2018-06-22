@@ -1,6 +1,8 @@
 //make an array of letters
 
-var letters = ["a", "b", "c", "d", "e", "f", 
+
+
+letters = ["a", "b", "c", "d", "e", "f", 
             "g", "h", "i", "j", "k", "l", 
             "m", "n", "o", "p", "q", "r", 
             "s", "t", "u", "v", "w", "x", 
@@ -12,22 +14,23 @@ var wins = 0;
 var losses = 0;
 var remainingGuesses = 10;
 var userGuesses = [];
-var chosenRandomLetter = letters[Math.floor(Math.random() * letters.length)];
+var chosenRandomLetter;
 
-function updateDisplay() {
-    document.getElementById("wins").innerHTML = wins;
-    document.getElementById("losses").innerHTML = losses;
-    document.getElementById("remainingGuesses").innerHTML = remainingGuesses;
-    document.getElementById("userGuesses").innerHTML = userGuesses;
+function randomLetter() {
+   chosenRandomLetter = letters[Math.floor(Math.random() * letters.length)];
+    randomLetter();
 };
-
-updateDisplay();
-
 
 document.onkeyup = function(event) {
     var letter = String.fromCharCode(event.keyCode).toLowerCase();
+    //userGuesses.event = letter;
     letter === userGuesses;
+    //return(letter);
     
+    for (var i = 0; i < userGuesses.length; i++) {
+    document.getElementById("userGuesses").innerHTML += userGuesses[i];
+    }
+
     if(letter === chosenRandomLetter) {
         wins++;
         remainingGuesses--;
@@ -45,6 +48,16 @@ document.onkeyup = function(event) {
     if(remainingGuesses = 0) {
         alert("You went through your 10 tries!");
     }
+
+    function updateDisplay() {
+        document.getElementById("wins").innerHTML = wins;
+        document.getElementById("losses").innerHTML = losses;
+        document.getElementById("remainingGuesses").innerHTML = remainingGuesses;
+        document.getElementById("userGuesses").innerHTML = userGuesses;
+    }
+    
+    updateDisplay();
+
 };
 
 //begin the game
