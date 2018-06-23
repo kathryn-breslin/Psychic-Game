@@ -2,11 +2,7 @@
 
 
 
-letters = ["a", "b", "c", "d", "e", "f", 
-            "g", "h", "i", "j", "k", "l", 
-            "m", "n", "o", "p", "q", "r", 
-            "s", "t", "u", "v", "w", "x", 
-            "y", "z",];
+letters = ["k", "y", "d"];
 
 //create variables
 
@@ -18,27 +14,27 @@ var chosenRandomLetter;
 
 function randomLetter() {
    chosenRandomLetter = letters[Math.floor(Math.random() * letters.length)];
-    randomLetter();
+    return console.log(chosenRandomLetter);
 };
 
 document.onkeyup = function(event) {
-    var letter = String.fromCharCode(event.keyCode).toLowerCase();
+    var pancake = String.fromCharCode(event.keyCode).toLowerCase();
     //userGuesses.event = letter;
-    letter === userGuesses;
+    userGuesses = pancake;
     //return(letter);
     
     for (var i = 0; i < userGuesses.length; i++) {
     document.getElementById("userGuesses").innerHTML += userGuesses[i];
     }
 
-    if(letter === chosenRandomLetter) {
+    if(userGuesses === chosenRandomLetter) {
         wins++;
         remainingGuesses--;
         userGuesses.push(userGuesses);
         updateDisplay();
     }
 
-    if (letter != chosenRandomLetter) {
+    if (userGuesses != chosenRandomLetter) {
         losses++;
         remainingGuesses--;
         userGuesses.push(userGuesses);
